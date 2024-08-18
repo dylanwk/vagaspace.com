@@ -1,8 +1,9 @@
-import Container from '@/components/Container';
-import getListings, { IListingParams } from '../actions/getListings';
-import ClientOnly from '@/components/ClientOnly';
-import EmptyState from '@/components/EmptyState';
-import ListingCard from '@/components/listing/ListingCard';
+import Container from "@/components/Container";
+import getListings, { IListingParams } from "../actions/getListings";
+import EmptyState from "@/components/EmptyState";
+import ListingCard from "@/components/listing/ListingCard";
+import { categories } from "@/lib/icons/navbarIcons";
+import CategoryBox from "@/components/categories/CategoryBox";
 
 interface SearchProps {
   searchParams: IListingParams;
@@ -10,9 +11,23 @@ interface SearchProps {
 
 export default async function s({ searchParams }: SearchProps) {
   const listings = await getListings(searchParams);
+  const category = searchParams.category
+    ? searchParams.category.split(",")
+    : [];
 
   return (
+    <>
       <Container>
+        <div className="flex flex-row items-center justify-between overflow-x-auto pt-4">
+          {categories.map((item) => (
+            <CategoryBox
+              key={item.label}
+              label={item.label}
+              selected={category?.includes(item.label)}
+              icon={<item.icon size={26} />}
+            />
+          ))}
+        </div>
         {listings && listings.length === 0 ? (
           <EmptyState showReset />
         ) : (
@@ -24,5 +39,6 @@ export default async function s({ searchParams }: SearchProps) {
           </div>
         )}
       </Container>
+    </>
   );
 }

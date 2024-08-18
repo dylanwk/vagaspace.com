@@ -1,25 +1,16 @@
-"use client";
+"use client"
+
 
 import Image from "next/image";
 import UserMenu from "./UserMenu";
 import Link from "next/link";
 //import NavSearch from '../searchbars/NavSearch';
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
-//import CategoryBoxSkeleton from '../skeletons/CategoryBoxSkeleton';
 import Container from "../Container";
 
-// const Categories = dynamic(() => import('../categories/Categories'), {
-// ssr: false,
-// loading: () => <CategoryBoxSkeleton />
-// });
-
-interface NavbarProps {}
-
-const Navbar: React.FC<NavbarProps> = () => {
+const Navbar = () => {
   const pathname = usePathname();
   const isMainPage = pathname === "/";
-  const isSearchPage = pathname === "/s";
 
   return (
     <>
@@ -60,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           </Container>
         </div>
       </div>
-      {isSearchPage && /* <Categories /> */ <></>}
+      
     </>
   );
 };

@@ -5,6 +5,7 @@ export interface IListingParams {
   bedCount?: number;
   bathroomCount?: number;
   location?: string;
+  category?: string;
 }
 
 export default async function getListings(params: IListingParams) {

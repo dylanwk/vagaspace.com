@@ -1,5 +1,6 @@
 import getListingById from "@/app/actions/getListingById";
 import Image from "next/image";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 import ListingInfo from "@/components/listing/ListingInfo";
 import ListingLink from "@/components/listing/ListingLink";
@@ -97,8 +98,8 @@ export default async function listings({ params }: { params: IParams }) {
                 description={listing.description}
                 descriptors={"none"}
                 locationValue={listing.locationAttractions}
-                location={listing.location}
                 amenities={amenityPage}
+                HiOutlineLocationMarker={<HiOutlineLocationMarker className="mt-1" color="black"/>}
               />
             </div>
             <div className="w-full md:w-[40%] flex flex-col gap-8 col-span-4">
