@@ -1,14 +1,13 @@
-"use client";
-
-import { AiOutlineMenu } from "react-icons/ai";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { IconType } from "react-icons/lib";
+import { AiOutlineMenu } from "react-icons/ai";
 
 interface UserMenuInterface {}
 
-const UserMenu: React.FC<UserMenuInterface> = () => {
+const UserMenu: React.FC<UserMenuInterface> = ({}) => {
   const pathname = usePathname();
   const isMainPage = pathname === "/";
 
@@ -17,6 +16,8 @@ const UserMenu: React.FC<UserMenuInterface> = () => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const Icon: IconType = AiOutlineMenu; // Dynamically import the icon
 
   return (
     <div className="relative">
@@ -28,10 +29,7 @@ const UserMenu: React.FC<UserMenuInterface> = () => {
           aria-expanded={isOpen}
           className="flex cursor-pointer flex-row items-center gap-3 rounded-full border-[1px] border-neutral-200 p-4 transition hover:shadow-md "
         >
-          <AiOutlineMenu
-            size={17}
-            color={` ${isMainPage ? "white" : "black"}`}
-          />
+          <Icon size={17} /> {/* Use the dynamically imported icon */}
         </div>
       </div>
       <AnimatePresence>

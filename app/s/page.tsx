@@ -31,7 +31,7 @@ export default async function s({ searchParams }: SearchProps) {
         {listings && listings.length === 0 ? (
           <EmptyState showReset />
         ) : (
-          <div className="grid min-h-screen grid-cols-1 gap-8 pt-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+          <div className="grid min-h-screen grid-cols-1 gap-8 pt-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
             {listings &&
               listings.map((listing: any) => {
                 return <ListingCard key={listing.id} data={listing} />;

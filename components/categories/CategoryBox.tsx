@@ -68,7 +68,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       className={`${selected ? 'border-b-neutral-800' : 'border-transparent'} ${selected ? 'text-neutral-800' : 'text-neutral-500'} flex cursor-pointer flex-col items-center justify-center gap-2 border-b-2 p-3 transition hover:text-neutral-800`}
     >
       {icon}
-      <div className="text-sm font-medium tracking-tight">{label}</div>
+      <div className="whitespace-nowrap text-xs sm:text-sm font-medium tracking-tight">{label}</div>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
-import Heading from './modals/Heading';
+import Heading from './Heading';
 
 interface EmptyStateInterface {
   title?: string;

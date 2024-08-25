@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image';
-import Heading from '../modals/Heading';
+import Heading from '../Heading';
 
 interface ListingHeadProps {
   title: string;

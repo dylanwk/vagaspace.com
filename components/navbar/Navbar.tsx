@@ -4,13 +4,17 @@
 import Image from "next/image";
 import UserMenu from "./UserMenu";
 import Link from "next/link";
-//import NavSearch from '../searchbars/NavSearch';
 import { usePathname } from "next/navigation";
 import Container from "../Container";
+import dynamic from "next/dynamic";
 
-const Navbar = () => {
+interface NavbarProps {}
+
+const Navbar: React.FC<NavbarProps> = ({}) => {
   const pathname = usePathname();
   const isMainPage = pathname === "/";
+
+  const NavSearchbar = dynamic(() => import("../searchbars/NavSearchbar"), {ssr: false})
 
   return (
     <>
@@ -45,7 +49,7 @@ const Navbar = () => {
                   </Link>
                 )}
               </div>
-              {/* !isMainPage && <NavSearch /> */}
+              {!isMainPage && <NavSearchbar /> }
               <UserMenu />
             </div>
           </Container>

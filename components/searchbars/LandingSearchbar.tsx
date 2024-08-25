@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 
-type Option = {
+type Country = {
   label: string;
   quantity: number;
 };
-const Options: Option[] = [
+export const countryOptions: Country[] = [
   { label: "Lisbon, Portugal", quantity: 6 },
   { label: "Del Carmen, Mexico", quantity: 9 },
   { label: "Mexico City, Mexico", quantity: 2 },
@@ -31,7 +31,7 @@ export default function LandingSeachbar({
   MdOutlineKeyboardArrowRight,
 }: LandingSearchbarProps) {
   const [locationValue, setLocationValue] = useState("");
-  const [newSuggestions, setSuggestions] = useState<Option[]>([]);
+  const [newSuggestions, setSuggestions] = useState<Country[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -40,7 +40,8 @@ export default function LandingSeachbar({
     const value = event.target.value;
     setLocationValue(value);
     if (value.length > 0) {
-      const filteredSuggestions = Options.filter((suggestion) =>
+      const filteredSuggestions = countryOptions
+    .filter((suggestion) =>
         suggestion.label.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(
@@ -49,7 +50,9 @@ export default function LandingSeachbar({
           : [{ quantity: -1, label: "No matches found" }]
       );
     } else {
-      setSuggestions(Options);
+      setSuggestions(countryOptions
+      
+      );
     }
   };
 
@@ -65,7 +68,9 @@ export default function LandingSeachbar({
 
   const handleInputFocus = () => {
     setDropdownOpen(true);
-    setSuggestions(Options);
+    setSuggestions(countryOptions
+    
+    );
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -79,7 +84,8 @@ export default function LandingSeachbar({
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    const matchedLocation = Options.find((loc) =>
+    const matchedLocation = countryOptions
+  .find((loc) =>
       loc.label.toLowerCase().includes(locationValue.toLowerCase())
     );
     router.push(`/s?locationValue=${matchedLocation?.label || "Anywhere"}`);

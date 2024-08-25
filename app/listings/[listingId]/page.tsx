@@ -7,7 +7,7 @@ import ListingLink from "@/components/listing/ListingLink";
 import { Skeleton } from "@/components/ui/skeleton";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
-import Heading from "@/components/modals/Heading";
+import Heading from "@/components/Heading";
 import { categories } from "@/lib/categories";
 
 interface IParams {
