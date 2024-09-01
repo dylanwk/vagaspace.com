@@ -17,7 +17,6 @@ const UserMenu: React.FC<UserMenuInterface> = ({}) => {
     setIsOpen((value) => !value);
   }, []);
 
-  const Icon: IconType = AiOutlineMenu; // Dynamically import the icon
 
   return (
     <div className="relative">
@@ -29,7 +28,7 @@ const UserMenu: React.FC<UserMenuInterface> = ({}) => {
           aria-expanded={isOpen}
           className="flex cursor-pointer flex-row items-center gap-3 rounded-full border-[1px] border-neutral-200 p-4 transition hover:shadow-md "
         >
-          <Icon size={17} /> {/* Use the dynamically imported icon */}
+          <AiOutlineMenu size={17} color={`${isMainPage ? "white" : 'black'}`} /> 
         </div>
       </div>
       <AnimatePresence>

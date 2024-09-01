@@ -92,7 +92,7 @@ const Modal: React.FC<ModalProps> = ({
                   <Button
                     disabled={disable}
                     onClick={handleSecondaryAction}
-                    className="w-full"
+                    className="w-full p-4"
                     variant="outline"
                   >
                     {secondaryActionLable}
@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
                 <Button
                   disabled={disable}
                   onClick={handleSubmit}
-                  className="w-full"
+                  className="w-full p-4"
                   variant="default"
                 >
                   {actionLabel}

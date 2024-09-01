@@ -5,6 +5,9 @@ import { FaChartLine, FaGlobe } from "react-icons/fa";
 import { PiMapPinBold } from "react-icons/pi";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import LandingSeachbar from "@/components/searchbars/LandingSearchbar";
+import { Button } from "@/components/ui/button";
+import useSearchModal from "./hooks/useSearchModal";
+import LandingSearchbarSkeleton from "@/components/skeletons/LandingSearchbarSkeleton";
 //import AutoCompleteInput from '@/components/inputs/AutoCompleteInput';
 
 const Home = () => {
@@ -29,64 +32,30 @@ const Home = () => {
           <h1 className="z-0 text-left text-7xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-7xl">
             Simplify your Journey. <br></br>
           </h1>
-          <h1 className="z-0 mb-10 mt-5 text-left text-2xl font-extrabold leading-none  text-white sm:text-center md:mb-20">
+          <h1 className="z-0 mb-10 mt-5 text-left text-2xl font-extrabold leading-none  text-white sm:text-center md:mb-10">
             {" "}
             Streamline Your Search for Remote, Work-Friendly Stays.
           </h1>
-            <div className="relative w-full sm:w-fit justify-center">
-              <div className="absolute -left-36 top-full z-50 hidden -translate-y-1/2 transform md:block">
-                <svg
-                  className="h-auto w-40 text-white"
-                  width="347"
-                  height="188"
-                  viewBox="0 0 347 188"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 82.4591C54.7956 92.8751 30.9771 162.782 68.2065 181.385C112.642 203.59 127.943 78.57 122.161 25.5053C120.504 2.2376 93.4028 -8.11128 89.7468 25.5053C85.8633 61.2125 130.186 199.678 180.982 146.248L214.898 107.02C224.322 95.4118 242.9 79.2851 258.6 107.02C274.299 134.754 299.315 125.589 309.861 117.539L343 93.4426"
-                    stroke="currentColor"
-                    strokeWidth="10"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
+
+          <div className="relative w-full sm:w-fit  sm:justify-center">
+            <div className="hidden sm:block">
               <LandingSeachbar
                 MdOutlineKeyboardArrowRight={
                   <MdOutlineKeyboardArrowRight size={28} color="white" />
                 }
                 PiMapPinBold={<PiMapPinBold size={30} color="white" />}
               />
-              <div className="absolute -right-14 -top-5 z-50 hidden -translate-y-1/2 transform md:block">
-                <svg
-                  className="h-auto w-16 text-white"
-                  width="121"
-                  height="135"
-                  viewBox="0 0 121 135"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
-                    stroke="currentColor"
-                    strokeWidth="10"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5"
-                    stroke="currentColor"
-                    strokeWidth="10"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874"
-                    stroke="currentColor"
-                    strokeWidth="10"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
             </div>
+
+            <div className="sm:hidden">
+              <LandingSearchbarSkeleton
+                MdOutlineKeyboardArrowRight={
+                  <MdOutlineKeyboardArrowRight size={28} color="white" />
+                }
+                PiMapPinBold={<PiMapPinBold size={30} color="white" />}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -153,7 +122,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="bg-neutral-900">
+      <div className="bg-background">
         <div className="mx-auto max-w-6xl px-4 py-10 lg:pt-20 xl:px-0">
           <div className="mb-10 max-w-3xl lg:mb-14">
             <h2 className="text-5xl font-semibold tracking-tight text-white md:text-4xl md:leading-tight lg:text-6xl">

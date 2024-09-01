@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEvent, useEffect, useRef, useState } from "react";
+import React, { FormEvent, useEffect, useRef, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
@@ -9,7 +9,8 @@ type Country = {
   label: string;
   quantity: number;
 };
-export const countryOptions: Country[] = [
+
+export const destinationOptions: Country[] = [
   { label: "Lisbon, Portugal", quantity: 6 },
   { label: "Del Carmen, Mexico", quantity: 9 },
   { label: "Mexico City, Mexico", quantity: 2 },
@@ -26,51 +27,45 @@ interface LandingSearchbarProps {
   MdOutlineKeyboardArrowRight: JSX.Element;
 }
 
-export default function LandingSeachbar({
+export default function LandingSearchbar({
   PiMapPinBold,
   MdOutlineKeyboardArrowRight,
 }: LandingSearchbarProps) {
   const [locationValue, setLocationValue] = useState("");
-  const [newSuggestions, setSuggestions] = useState<Country[]>([]);
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  const filteredSuggestions = useMemo(() => {
+    if (!locationValue) return destinationOptions;
+
+    const filtered = destinationOptions.filter((suggestion) =>
+      suggestion.label.toLowerCase().includes(locationValue.toLowerCase())
+    );
+
+    return filtered.length > 0
+      ? filtered
+      : [{ quantity: -1, label: "No matches found" }];
+  }, [locationValue]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setLocationValue(value);
-    if (value.length > 0) {
-      const filteredSuggestions = countryOptions
-    .filter((suggestion) =>
-        suggestion.label.toLowerCase().includes(value.toLowerCase())
-      );
-      setSuggestions(
-        filteredSuggestions.length > 0
-          ? filteredSuggestions
-          : [{ quantity: -1, label: "No matches found" }]
-      );
+    if (value) {
+      setDropdownOpen(true);
     } else {
-      setSuggestions(countryOptions
-      
-      );
+      setDropdownOpen(false);
     }
   };
 
   const handleSuggestionClick = (value: string) => {
-    if (value === "Anywhere") {
-      router.push(`/s?locationValue=${value}`);
-      return;
-    }
     setLocationValue(value);
-    setSuggestions([]);
     setDropdownOpen(false);
+    router.push(`/s?locationValue=${value}`);
   };
 
   const handleInputFocus = () => {
     setDropdownOpen(true);
-    setSuggestions(countryOptions
-    
-    );
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -84,8 +79,7 @@ export default function LandingSeachbar({
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    const matchedLocation = countryOptions
-  .find((loc) =>
+    const matchedLocation = destinationOptions.find((loc) =>
       loc.label.toLowerCase().includes(locationValue.toLowerCase())
     );
     router.push(`/s?locationValue=${matchedLocation?.label || "Anywhere"}`);
@@ -139,8 +133,7 @@ export default function LandingSeachbar({
             {dropdownOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1 }}
                 className="absolute left-0 z-50 mt-5 w-full max-w-[300px] rounded-md bg-white"
                 role="region"
                 aria-labelledby="LocationInput"
@@ -150,7 +143,7 @@ export default function LandingSeachbar({
                   role="listbox"
                   className="max-h-[300px] overflow-scroll rounded-sm bg-white font-semibold tracking-normal text-black"
                 >
-                  {newSuggestions.map((suggestion, index) =>
+                  {filteredSuggestions.map((suggestion, index) =>
                     suggestion.quantity === -1 ? (
                       <li
                         className="flex h-[150px] cursor-default items-center justify-center p-1 px-2 text-sm text-gray-500"
