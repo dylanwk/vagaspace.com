@@ -24,7 +24,7 @@ export default async function s({ searchParams }: SearchProps) {
               key={item.label}
               label={item.label}
               selected={category?.includes(item.label)}
-              icon={<item.icon size={26} />}
+              icon={<item.icon />}
             />
           ))}
         </div>

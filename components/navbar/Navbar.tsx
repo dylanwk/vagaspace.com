@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 import Image from "next/image";
 import UserMenu from "./UserMenu";
@@ -13,8 +12,79 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = ({}) => {
   const pathname = usePathname();
   const isMainPage = pathname === "/";
+  const isContactPage = pathname === "/contact";
 
-  const NavSearchbar = dynamic(() => import("../searchbars/NavSearchbar"), {ssr: false})
+  const NavSearchbar = dynamic(() => import("../searchbars/NavSearchbar"), {
+    ssr: false,
+  });
+
+  let HeaderIconComponent = <></>;
+
+  if (isMainPage) {
+    HeaderIconComponent = (
+      <>
+        <div className="flex flex-row items-center gap-0">
+          <Link href={"/"} className="z-10">
+            <Image
+              src={"/images/vagaspace_logo.svg"}
+              height={53}
+              width={53}
+              alt="Logo"
+              className="block"
+              style={{ minWidth: "47px", minHeight: "47px" }}
+            />
+          </Link>
+          {isMainPage && (
+            <Link href={"/"}>
+              <Image
+                src={"/images/vagaspace_title_white.png"}
+                height={53}
+                width={220}
+                alt="Vagaspace Title"
+                className="-ml-1"
+              />
+            </Link>
+          )}
+        </div>
+      </>
+    );
+  } else if (isContactPage) {
+    HeaderIconComponent = (
+      <>
+        <div className="flex flex-row items-center gap-0">
+          <Link href={"/"} className="z-10">
+            <Image
+              src={"/images/vagaspace_logo.svg"}
+              height={53}
+              width={53}
+              alt="Logo"
+              className="block"
+              style={{ minWidth: "47px", minHeight: "47px" }}
+            />
+          </Link>
+          
+        </div>
+      </>
+    );
+  } else {
+    HeaderIconComponent = (
+      <>
+        <div className="flex flex-row items-center gap-0">
+          <Link href={"/"} className="z-10">
+            <Image
+              src={"/images/vagaspace_logo.svg"}
+              height={53}
+              width={53}
+              alt="Logo"
+              className="block"
+              style={{ minWidth: "47px", minHeight: "47px" }}
+            />
+          </Link>
+        </div>
+        <NavSearchbar />
+      </>
+    );
+  }
 
   return (
     <>
@@ -26,36 +96,12 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         <div className="py-4">
           <Container>
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-              <div className="flex flex-row items-center gap-0">
-                <Link href={"/"} className="z-10">
-                  <Image
-                    src={"/images/vagaspace_logo.svg"}
-                    height={53}
-                    width={53}
-                    alt="Logo"
-                    className="block"
-                    style={{ minWidth: "47px", minHeight: "47px" }}
-                  />
-                </Link>
-                {isMainPage && (
-                  <Link href={"/"}>
-                    <Image
-                      src={"/images/vagaspace_title_white.png"}
-                      height={53}
-                      width={220}
-                      alt="Vagaspace Title"
-                      className="-ml-1"
-                    />
-                  </Link>
-                )}
-              </div>
-              {!isMainPage && <NavSearchbar /> }
+              {HeaderIconComponent}
               <UserMenu />
             </div>
           </Container>
         </div>
       </div>
-      
     </>
   );
 };

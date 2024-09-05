@@ -1,68 +1,66 @@
-// lib/sharedCategories.ts
+import {
+  WifiOutlined as WifiIcon,
+  DirectionsCarOutlined as CarIcon,
+  CoffeeMakerOutlined as CoffeeMakerIcon,
+  BathtubOutlined as BathtubIcon,
+  AcUnitOutlined as AirIcon,
+  BookOutlined as BookIcon,
+  WorkOutlineOutlined as WorkshopIcon,
+  LandscapeOutlined as MountainIcon,
+  WaterOutlined as WaterIcon,
+  LocationCityOutlined as CityIcon,
+  PetsOutlined as DogIcon,
+  ParkOutlined as TreeIcon,
+  TvOutlined as TvIcon,
+  BalconyOutlined,
+} from '@mui/icons-material';
+import LocalFloristOutlinedIcon from '@mui/icons-material/LocalFloristOutlined';
+import CountertopsOutlinedIcon from '@mui/icons-material/CountertopsOutlined';
+import VpnKeyOutlinedIcon from '@mui/icons-material/VpnKeyOutlined';
+import NestCamWiredStandOutlinedIcon from '@mui/icons-material/NestCamWiredStandOutlined';
+import TsunamiOutlinedIcon from '@mui/icons-material/TsunamiOutlined';
+import FireplaceOutlinedIcon from '@mui/icons-material/FireplaceOutlined';
+import FireExtinguisherOutlinedIcon from '@mui/icons-material/FireExtinguisherOutlined';
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import AirplayOutlinedIcon from '@mui/icons-material/AirplayOutlined';
+import WeekendOutlinedIcon from '@mui/icons-material/WeekendOutlined';
+import DiningOutlinedIcon from '@mui/icons-material/DiningOutlined';
+import { SvgIconComponent } from '@mui/icons-material';
 
-import { BsFire } from 'react-icons/bs';
-import { AiOutlineWifi, AiOutlineCar, AiOutlineSafety } from 'react-icons/ai';
-import {
-  MdOutlineCoffeeMaker,
-  MdOutlineBathtub,
-  MdOutlineKitchen,
-  MdOutlineAir,
-  MdOutlineElevator
-} from 'react-icons/md';
-import { BiCctv, BiBook } from 'react-icons/bi';
-import { GrWorkshop, GrStorage } from 'react-icons/gr';
-import { RiSafeLine, RiTvLine } from 'react-icons/ri';
-import {
-  FaFireExtinguisher,
-  FaLeaf,
-  FaMountain,
-  FaWater,
-  FaCity,
-  FaDog,
-  FaTree
-} from 'react-icons/fa';
-import { FiSmartphone } from 'react-icons/fi';
-import { IoFastFoodOutline } from 'react-icons/io5';
-import { IconType } from 'react-icons/lib';
 
 export interface Category {
   label: string;
-  icon: IconType;
+  icon: SvgIconComponent;
 }
 
 export const categories: Category[] = [
-  { label: 'Garden view', icon: FaLeaf },
-  { label: 'Hot water', icon: BsFire },
-  { label: 'Wifi', icon: AiOutlineWifi },
-  { label: 'Coffee', icon: MdOutlineCoffeeMaker },
-  { label: 'Security cameras on property', icon: BiCctv },
-  { label: 'Bathtub', icon: MdOutlineBathtub },
-  { label: 'Dedicated Workspace', icon: GrWorkshop },
-  { label: 'Safe', icon: RiSafeLine },
-  { label: 'Free parking on premises', icon: AiOutlineCar },
-  { label: 'Fire extinguisher', icon: FaFireExtinguisher },
-  { label: 'High-Speed wifi', icon: AiOutlineWifi },
-  { label: 'Ocean view', icon: FaWater },
-  { label: 'Waterfront Location', icon: FaWater },
-  { label: 'City view', icon: FaCity },
-  { label: 'Mountain View', icon: FaMountain },
-  { label: 'Patio', icon: MdOutlineKitchen },
-  { label: 'Outdoor space', icon: FaTree },
-  { label: 'Free parking', icon: AiOutlineCar },
-  { label: 'Kitchen', icon: MdOutlineKitchen },
-  { label: 'Kitchenette', icon: IoFastFoodOutline },
-  { label: 'Books', icon: BiBook },
-  { label: 'Secure Storage', icon: GrStorage },
-  { label: 'Fireplace', icon: BsFire },
-  { label: 'Pet friendly', icon: FaDog },
-  { label: 'Fire extinguisher', icon: FaFireExtinguisher },
-  { label: 'Carbon monoxide alarm', icon: AiOutlineSafety },
-  { label: 'Smart TV', icon: FiSmartphone },
-  { label: 'TV', icon: RiTvLine },
-  { label: 'Dining Room', icon: IoFastFoodOutline },
-  { label: 'Living Room', icon: MdOutlineKitchen },
-  { label: 'Air Conditioning', icon: MdOutlineAir },
-  { label: 'Open floor plan', icon: MdOutlineKitchen },
-  { label: 'Washing Machine', icon: MdOutlineKitchen },
-  { label: 'Elevator', icon: MdOutlineElevator },
+  { label: 'Garden view', icon: LocalFloristOutlinedIcon },
+  { label: 'Wifi', icon: WifiIcon },
+  { label: 'Coffee', icon: CoffeeMakerIcon },
+  { label: 'Security cameras on property', icon: NestCamWiredStandOutlinedIcon },
+  { label: 'Bathtub', icon: BathtubIcon },
+  { label: 'Dedicated Workspace', icon: WorkshopIcon },
+  { label: 'Safe', icon: VpnKeyOutlinedIcon },
+  { label: 'Free parking on premises', icon: CarIcon },
+  { label: 'High-Speed wifi', icon: WifiIcon },
+  { label: 'Ocean view', icon: TsunamiOutlinedIcon },
+  { label: 'Waterfront Location', icon: WaterIcon },
+  { label: 'City view', icon: CityIcon },
+  { label: 'Mountain View', icon: MountainIcon },
+  { label: 'Patio', icon: BalconyOutlined },
+  { label: 'Outdoor space', icon: TreeIcon },
+  { label: 'Free parking', icon: CarIcon },
+  { label: 'Kitchen', icon: CountertopsOutlinedIcon },
+  { label: 'Kitchenette', icon: CountertopsOutlinedIcon },
+  { label: 'Books', icon: BookIcon },
+  { label: 'Secure Storage', icon: VpnKeyOutlinedIcon },
+  { label: 'Fireplace', icon: FireplaceOutlinedIcon },
+  { label: 'Pet friendly', icon: DogIcon },
+  { label: 'Fire extinguisher', icon: FireExtinguisherOutlinedIcon },
+  { label: 'Carbon monoxide alarm', icon: NotificationsActiveOutlinedIcon },
+  { label: 'Smart TV', icon: AirplayOutlinedIcon },
+  { label: 'TV', icon: TvIcon },
+  { label: 'Dining Room', icon: DiningOutlinedIcon },
+  { label: 'Living Room', icon: WeekendOutlinedIcon },
+  { label: 'Air Conditioning', icon: AirIcon },
 ];

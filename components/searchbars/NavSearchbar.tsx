@@ -3,7 +3,7 @@
 import useSearchModal from '@/app/hooks/useSearchModal';
 import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
-import { BiSearch } from 'react-icons/bi';
+import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
 
 interface NavSearchbarProps {}
 
@@ -60,8 +60,8 @@ const NavSearchbar: React.FC<NavSearchbarProps> = ({}) => {
         </div>
         <div className="flex flex-row items-center gap-3 pl-6 pr-2 text-sm font-semibold">
           <div className="hidden sm:block">{categoryLabel}</div>
-          <div className="rounded-full bg-primary p-2 text-white">
-            <BiSearch size={18} color="white" />
+          <div className=" ml-1 rounded-full bg-primary p-2 text-white">
+            <TuneOutlinedIcon fontSize='small' />
           </div>
         </div>
       </div>

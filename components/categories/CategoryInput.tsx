@@ -1,9 +1,9 @@
 'use client';
 
-import { IconType } from 'react-icons';
+import { SvgIconComponent } from '@mui/icons-material';
 
 type Props = {
-  icon: IconType;
+  icon: SvgIconComponent;
   label: string;
   selected?: boolean;
   onClick: (value: string) => void;
@@ -17,7 +17,7 @@ function CategoryInput({ icon: Icon, label, selected, onClick }: Props) {
         selected ? 'border-black' : 'border-neutral-200'
       }`}
     >
-      <Icon size={30} />
+      <Icon />
       <div className="font-semibold">{label}</div>
     </div>
   );

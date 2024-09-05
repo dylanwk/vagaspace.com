@@ -12,16 +12,14 @@ export const metadata: Metadata = {
   description: "The Travel Agency tailored to Remote Workers",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const SearchModal = dynamic(() => import("@/components/modals/SearchModal"), {
-    ssr: false
-  })
+    ssr: false,
+  });
 
   return (
     <html lang="en">
@@ -29,10 +27,11 @@ export default function RootLayout({
         <SearchModal />
 
         <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <main className="min-h-[100vh] antialiased bg-background">
+          {children}
+          </main>
+          <Footer />
       </body>
-
     </html>
   );
 }

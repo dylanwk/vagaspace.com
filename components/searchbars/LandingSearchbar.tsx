@@ -102,7 +102,7 @@ export default function LandingSearchbar({
         onSubmit={handleSubmit}
         className="flex w-full flex-row items-center justify-between"
       >
-        <div className="ml-6 hidden sm:block" aria-hidden="true">
+        <div className="ml-6 hidden sm:block text-white" aria-hidden="true">
           {PiMapPinBold}
         </div>
 
@@ -141,7 +141,7 @@ export default function LandingSearchbar({
                 <ul
                   id="autocomplete-list"
                   role="listbox"
-                  className="max-h-[300px] overflow-scroll rounded-sm bg-white font-semibold tracking-normal text-black"
+                  className="max-h-[260px] overflow-scroll rounded-sm bg-white font-semibold tracking-normal text-black"
                 >
                   {filteredSuggestions.map((suggestion, index) =>
                     suggestion.quantity === -1 ? (
@@ -190,7 +190,7 @@ export default function LandingSearchbar({
           <div className="hidden pl-4 pr-3 text-lg font-semibold text-white sm:block">
             Search
           </div>
-          <span aria-hidden="true">{MdOutlineKeyboardArrowRight}</span>
+          <span aria-hidden="true" className="text-white">{MdOutlineKeyboardArrowRight}</span>
         </Button>
       </form>
     </div>

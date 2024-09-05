@@ -13,10 +13,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-  },
-  experimental: {
-    optimizePackageImports: ['react-icons'],
-  },
+  }
 };
 
 export default bundleAnalyzer(nextConfig);

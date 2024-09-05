@@ -1,24 +1,17 @@
 "use client";
 
-import { IconType } from "react-icons/lib";
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 interface ListingInfoProps {
   description: string;
-  descriptors:
-    | { label: string; icon: IconType; description: string }[]
-    | string;
   locationValue: string;
   amenities: JSX.Element;
-  HiOutlineLocationMarker: JSX.Element;
 }
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
   description,
-  descriptors,
   locationValue,
   amenities,
-  HiOutlineLocationMarker,
 }) => {
   const parsed_description = description.replace("Description: ", "");
 
@@ -33,9 +26,8 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
 
       <hr />
       <p className="-mb-2 text-xl font-semibold">
-        Users have rated this space as
+        This spaces is as
       </p>
-      {descriptors && <></>}
       <hr />
       <div>
         <p className="text-xl font-semibold">Explore what&apos;s nearby</p>
@@ -44,7 +36,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             {parsed_locations &&
               parsed_locations.map((item, index) => (
                 <div className="flex flex-row gap-2" key={index}>
-                  {HiOutlineLocationMarker}
+                  <PlaceOutlinedIcon htmlColor='black' className='mt-1' />
                   {item}
                 </div>
               ))}

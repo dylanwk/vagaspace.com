@@ -1,8 +1,4 @@
 "use client";
-import React from "react";
-import { Button } from "../ui/button";
-import { PiMapPinBold } from "react-icons/pi";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import useSearchModal from "@/app/hooks/useSearchModal";
 
 interface LandingSearchbarSkeletonProps {
@@ -38,7 +34,7 @@ const LandingSearchbarSkeleton: React.FC<LandingSearchbarSkeletonProps> = ({
           <div className="hidden pl-4 pr-3 text-lg font-semibold text-white sm:block">
             Search
           </div>
-          <span aria-hidden="true">{MdOutlineKeyboardArrowRight}</span>
+          <span aria-hidden="true" className="text-white">{MdOutlineKeyboardArrowRight}</span>
         </div>
       </div>
     </div>

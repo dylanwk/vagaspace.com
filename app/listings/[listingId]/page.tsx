@@ -1,6 +1,6 @@
 import getListingById from "@/app/actions/getListingById";
 import Image from "next/image";
-import { HiOutlineLocationMarker } from "react-icons/hi";
+
 
 import ListingInfo from "@/components/listing/ListingInfo";
 import ListingLink from "@/components/listing/ListingLink";
@@ -13,6 +13,7 @@ import { categories } from "@/lib/categories";
 interface IParams {
   listingId?: string;
 }
+
 
 export default async function listings({ params }: { params: IParams }) {
   const listing = await getListingById(params);
@@ -46,7 +47,7 @@ export default async function listings({ params }: { params: IParams }) {
             key={index}
             className="my-1 flex items-center justify-start gap-4 text-center"
           >
-            <item.icon size={25} className="text-gray-700" />
+            <item.icon className="text-gray-700" />
             <p className="text-neutral-500 text-sm sm:text-base">
               {item?.label}
             </p>
@@ -59,7 +60,7 @@ export default async function listings({ params }: { params: IParams }) {
             key={index}
             className="my-1 flex items-center justify-start gap-4 text-center"
           >
-            <item.icon size={25} className="text-gray-700" />
+            <item.icon className="text-gray-700" />
             <p className="text-neutral-500 text-sm sm:text-base">
               {item?.label}
             </p>
@@ -69,9 +70,11 @@ export default async function listings({ params }: { params: IParams }) {
     </>
   );
 
+  
+
   return (
     <Container>
-      <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto mt-4 max-w-screen-lg px-4 sm:px-6 lg:px-8 mb-20">
         <div className="flex flex-col gap-4 sm:gap-6">
           <div className="relative aspect-square sm:aspect-[4/3] md:aspect-[16/9] w-full overflow-hidden rounded-xl">
             <Image
@@ -85,21 +88,19 @@ export default async function listings({ params }: { params: IParams }) {
             />
           </div>
           <Heading title={listing.title} />
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-light text-neutral-500 text-sm sm:text-base">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-light -mt-4 sm:-mt-2 text-neutral-500 text-sm sm:text-base">
             <div>{listing.guestCount} guests</div>
-            <div className="hidden sm:inline">•</div>
+            <div className="inline">•</div>
             <div>{listing.bedCount} bedroom</div>
-            <div className="hidden sm:inline">•</div>
+            <div className="inline">•</div>
             <div>{listing.bathroomCount} bathrooms</div>
           </div>
           <div className="mt-4 flex flex-col gap-6 md:flex-row md:gap-10">
             <div className="w-full md:w-[60%]">
               <ListingInfo
                 description={listing.description}
-                descriptors={"none"}
                 locationValue={listing.locationAttractions}
                 amenities={amenityPage}
-                HiOutlineLocationMarker={<HiOutlineLocationMarker className="mt-1" color="black"/>}
               />
             </div>
             <div className="w-full md:w-[40%] flex flex-col gap-8 col-span-4">
