@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import "../styles/globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/toaster"
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +32,7 @@ export default function RootLayout({
         <main className="min-h-[100vh] antialiased bg-background">
           {children}
           </main>
+          <Toaster />
           <Footer />
       </body>
     </html>
