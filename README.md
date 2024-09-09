@@ -1,6 +1,4 @@
 <div align="center">
-
-  <img src="https://user-images.githubusercontent.com/99184393/185779974-a31a9f47-f8d3-42ea-b7f8-4a2971774615.png" alt="logo" width="250" height="auto" />
   
   # Vagaspace: Your Remote Work Housing Aggregator
   
@@ -9,13 +7,6 @@
   </p>
   
   <!-- Badges -->
-  <a href="https://vagaspace.com" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
-  ![](https://img.shields.io/badge/Maintained-Yes-indigo)
-  ![](https://img.shields.io/github/forks/DylanWalker/vagaspace.svg)
-  ![](https://img.shields.io/github/stars/DylanWalker/vagaspace.svg)
-  ![](https://img.shields.io/github/issues/DylanWalker/vagaspace)
-  ![](https://img.shields.io/github/last-commit/DylanWalker/vagaspace)
-
   <h4>
     <a href="https://vagaspace.com">View Demo</a>
     <span> · </span>
@@ -29,48 +20,11 @@
 
 <br />
 
-<!-- Table of Contents -->
-
-## :notebook_with_decorative_cover: Table of Contents
-
-- [About the Project](#star2-about-the-project)
-  - [Screenshots](#camera-screenshots)
-  - [Tech Stack](#space_invader-tech-stack)
-  - [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
-  - [Prerequisites](#bangbang-prerequisites)
-  - [Installation](#gear-installation)
-  - [Run Locally](#running-run-locally)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [Contact](#handshake-contact)
-
 <!-- About the Project -->
 
 ## :star2: About the Project
 
 <!-- Screenshots -->
-
-### :camera: Screenshots
-
-- Home page showcasing multi-source rental listings
-
-<div align="center">
-  <a href="https://vagaspace.com"><img src='./demo/homepage.png' alt='homepage'/></a>
-</div>
-
-<br />
-
-- Search functionality and accommodation details
-
-<div align="center">
-  <a href="https://vagaspace.com"><img src='./demo/search.png' alt='search'/></a>
-</div>
-
-## <a href="https://vagaspace.com" target="_blank">LIVE DEMO 💥</a>
-
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-![forthebadge](https://forthebadge.com/images/badges/for-you.svg)
-![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)
 
 ### :space_invader: Tech Stack
 
@@ -87,8 +41,8 @@
 <details>
 <summary>Database & Hosting</summary>
   <ul>
-    <li><a href="https://firebase.google.com">Firebase</a></li>
-    <li><a href="https://cloudinary.com/">Cloudinary</a></li>
+    <li><a href="https://mongodb.com">MongoDB</a></li>
+    <li><a href="https://vercel.com/">Vercel</a></li>
   </ul>
 </details>
 
@@ -112,39 +66,7 @@
           <a href="#"><img src="https://user-images.githubusercontent.com/99184393/180462270-ea4a249c-627c-4479-9431-5c3fd25454c4.png" alt="" width="30" height="30" /></a>
         </td>
         <td>
-          <a href="#"><img src="https://user-images.githubusercontent.com/99184393/185779974-a31a9f47-f8d3-42ea-b7f8-4a2971774615.png" alt="" width="30" height="30"/></a>
-        </td>
-        <td>
-          <a href="#"><img src="https://user-images.githubusercontent.com/99184393/229775276-a7cb148b-7fbd-4334-a07f-f2223bc49f62.png" alt="" width="30" height="30"/></a>
-        </td>
-        <td>
-          <a href="#"><img src="https://user-images.githubusercontent.com/99184393/204170976-0e5c6e2a-2b41-483d-adbd-d5d1e40b8d15.png" alt="" width="30" height="30"/></a>
-        </td>
-        <td>
           <a href="#"><img src="https://user-images.githubusercontent.com/99184393/214867309-7b59fa0e-c872-484e-bc8f-462896c54d2a.png" alt="" height="30"/></a>
         </td>
     </tr>
 </table>
-
-## :toolbox: Getting Started
-
-### :bangbang: Prerequisites
-
-- Install Node.js from <a href='https://nodejs.org/en/'>HERE</a>
-- Sign up for a Cloudinary account <a href='https://cloudinary.com/'>HERE</a>
-- Set up Firebase for hosting <a href='https://firebase.google.com'>HERE</a>
-
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables to your `.env` file:
-
-- `DATABASE_URL`
-- `CLOUDINARY_CLOUD_NAME`
-- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`
-
-### :gear: Installation
-
-Install dependencies:
-
-```bash
-npm install
