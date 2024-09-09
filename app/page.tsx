@@ -28,10 +28,10 @@ const Home = () => {
         </div>
 
         <div className="z-20 mx-auto flex h-full max-w-7xl flex-col items-center justify-center text-center sm:-mt-8">
-          <h1 className="z-0 text-left text-7xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-7xl">
-            Make Travel Easier. <br></br>
+          <h1 className="z-0 text-left text-6xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-6xl">
+            One Search. Endless Possibilities <br></br>
           </h1>
-          <h1 className="z-0 mb-10 mt-5 text-left text-2xl font-extrabold leading-none  text-white sm:text-center md:mb-10">
+          <h1 className="z-0 mb-10 mt-5 text-left text-2xl font-medium leading-none  text-white sm:text-center md:mb-10">
             {" "}
             Streamline Your Search for Remote, Work-Friendly Stays.
           </h1>

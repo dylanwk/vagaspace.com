@@ -17,6 +17,7 @@ interface UserMenuInterface {}
 const UserMenu: React.FC<UserMenuInterface> = ({}) => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isBlogPage = pathname === "/blog"
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +25,7 @@ const UserMenu: React.FC<UserMenuInterface> = ({}) => {
     setIsOpen((value) => !value);
   }, []);
 
-  const MenuIcon = isHomePage ? (
+  const MenuIcon = isHomePage || isBlogPage ? (
     <MenuOutlinedIcon fontSize="small" htmlColor="white" />
   ) : (
     <MenuOutlinedIcon fontSize="small" htmlColor="black" />
@@ -49,6 +50,9 @@ const UserMenu: React.FC<UserMenuInterface> = ({}) => {
           <DropdownMenuContent className="z-10">
             <div className="right-0 top-12 z-10 mt-2 w-40 overflow-hidden rounded-xl bg-white text-sm shadow-md">
               <div className="z-10 flex cursor-pointer flex-col">
+              <Link href={"/s?locationValue=Anywhere"}>
+                  <MenuItem label="View Spaces" />
+                </Link>
                 <Link href={"/about"}>
                   <MenuItem label="About" />
                 </Link>

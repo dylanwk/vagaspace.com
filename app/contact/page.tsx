@@ -41,7 +41,7 @@ const Contact = () => {
 
                 <a
                   className="mt-1 text-neutral-600 font-light hover:underline focus:underline"
-                  href="mailto:example@site.co"
+                  href="mailto:hello@vagaspace.com"
                   target="_blank"
                 >
                   hello@vagaspace.com

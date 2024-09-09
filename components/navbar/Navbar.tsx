@@ -12,7 +12,9 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = ({}) => {
   const pathname = usePathname();
   const isMainPage = pathname === "/";
-  const isContactPage = pathname === "/contact";
+  const isContactPage = pathname === "/contact" || pathname === "/blog/write-for-us";
+  const isBlogPage = pathname === "/blog";
+  
 
   const NavSearchbar = dynamic(() => import("../searchbars/NavSearchbar"), {
     ssr: false,
@@ -20,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   let HeaderIconComponent = <></>;
 
-  if (isMainPage) {
+  if (isMainPage || isBlogPage) {
     HeaderIconComponent = (
       <>
         <div className="flex flex-row items-center gap-0">
@@ -34,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               style={{ minWidth: "47px", minHeight: "47px" }}
             />
           </Link>
-          {isMainPage && (
+          
             <Link href={"/"}>
               <Image
                 src={"/images/vagaspace_title_white.png"}
@@ -44,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
                 className="-ml-1"
               />
             </Link>
-          )}
+          
         </div>
       </>
     );
@@ -90,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     <>
       <div
         className={`z-10 mt-4 w-full bg-transparent ${
-          !isMainPage ? "" : "absolute"
+          isMainPage || isBlogPage ? "absolute" : ""
         }`}
       >
         <div className="py-4">

@@ -28,32 +28,47 @@
     --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 72.2% 50.6%;
-    --primary-foreground: 0 85.7% 97.3%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 72.2% 50.6%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+  
+.article {
+  @apply mb-20 flex flex-col gap-3 text-lg;
+}
+
+.article > p {
+  @apply font-serif;
+}
+
+.article > h1 {
+  @apply py-8 text-left text-4xl font-extrabold tracking-tight md:text-6xl;
+}
+
+.article > h2 {
+  @apply pt-5 text-3xl font-bold tracking-tight;
+}
+
+.article > ol {
+  @apply mx-10 flex list-decimal flex-col gap-2;
+}
+
+.article > ul {
+  @apply mx-10 flex list-disc flex-col gap-2;
+}
+
+.article > pre {
+  @apply overflow-scroll bg-neutral-950 p-5 text-neutral-50;
+}
+
+.article > blockquote {
+  @apply border-l-2 border-neutral-600 border-opacity-40 pl-5 italic;
+}
+
+.article > p > img {
+  @apply mx-auto mb-6 w-full rounded-lg;
+}
+
+.article > h3 {
+  @apply -mt-6 mb-4 text-center text-sm font-light;
+}
+
 
   * {
     @apply border-border;
