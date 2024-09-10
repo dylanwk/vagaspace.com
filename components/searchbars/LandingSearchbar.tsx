@@ -93,6 +93,11 @@ export default function LandingSearchbar({
   }, []);
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+    >
     <div
       ref={containerRef}
       className="relative z-20 flex cursor-pointer flex-row justify-center rounded-full border-[2px] bg-transparent py-3.5 align-middle backdrop-blur-md backdrop-filter sm:w-[550px]"
@@ -194,5 +199,6 @@ export default function LandingSearchbar({
         </Button>
       </form>
     </div>
+    </motion.div>
   );
 }

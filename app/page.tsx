@@ -9,6 +9,7 @@ import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutl
 import LandingSeachbar from "@/components/searchbars/LandingSearchbar";
 import LandingSearchbarSkeleton from "@/components/skeletons/LandingSearchbarSkeleton";
 
+
 const Home = () => {
   return (
     <>
@@ -27,7 +28,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="z-20 mx-auto flex h-full max-w-7xl flex-col items-center justify-center text-center sm:-mt-8">
+        <div className="z-20 mx-auto flex h-full max-w-7xl flex-col items-center justify-center text-center sm:-mt-6">
           <h1 className="z-0 text-left text-6xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-6xl">
             One Search. Endless Possibilities <br></br>
           </h1>
@@ -67,52 +68,53 @@ const Home = () => {
               globe.
             </p>
           </div>
+          
+            <div className="space-y-8 lg:space-y-16">
+              <div className="flex gap-x-5 sm:gap-x-8">
+                <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
+                  <ChartIcon fontSize="large" />
+                </span>
+                <div className="grow">
+                  <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
+                    Research-Backed Spaces
+                  </h3>
+                  <p className="mt-1 text-neutral-600 text-lg font-light">
+                    All spaces on Vagaspace are suited for working
+                    professionals.
+                  </p>
+                </div>
+              </div>
 
-          <div className="space-y-8 lg:space-y-16">
-            <div className="flex gap-x-5 sm:gap-x-8">
-              <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
-                <ChartIcon fontSize="large" />
-              </span>
-              <div className="grow">
-                <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
-                  Research-Backed Spaces
-                </h3>
-                <p className="mt-1 text-neutral-600 text-lg font-light">
-                  All spaces on Vagaspace are suited for working professionals.
-                </p>
+              <div className="flex gap-x-5 sm:gap-x-8">
+                <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
+                  <GlobeIcon fontSize="large" />
+                </span>
+                <div className="grow">
+                  <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
+                    Wide Range of Sources
+                  </h3>
+                  <p className="mt-1 text-neutral-600 font-light text-lg">
+                    Discover stays from platforms like Airbnb and Vrbo, to local
+                    small-town travel agencies.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-x-5 sm:gap-x-8">
+                <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
+                  <ThumbUp fontSize="large" />
+                </span>
+                <div className="grow">
+                  <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
+                    Trusted Spaces
+                  </h3>
+                  <p className="mt-1 text-neutral-600 font-light text-lg">
+                    Every listing on Vagaspace is verified for saftey and
+                    credibility.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="flex gap-x-5 sm:gap-x-8">
-              <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
-                <GlobeIcon fontSize="large" />
-              </span>
-              <div className="grow">
-                <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
-                  Wide Range of Sources
-                </h3>
-                <p className="mt-1 text-neutral-600 font-light text-lg">
-                  Discover stays from platforms like Airbnb and Vrbo, to local
-                  small-town travel agencies.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-x-5 sm:gap-x-8">
-              <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
-                <ThumbUp fontSize="large" />
-              </span>
-              <div className="grow">
-                <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
-                  Trusted Spaces
-                </h3>
-                <p className="mt-1 text-neutral-600 font-light text-lg">
-                  Every listing on Vagaspace is verified for saftey and
-                  credibility.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -124,8 +126,8 @@ const Home = () => {
             Our approach
           </h2>
           <p className="mt-3 text-neutral-600 text-lg sm:text-xl font-light">
-            Our strategy combines regionial research and continuous feedback from both our team and users,
-            ensuring top-quality listings.
+            Our strategy combines regionial research and continuous feedback
+            from both our team and users, ensuring top-quality listings.
           </p>
         </div>
 
@@ -169,8 +171,8 @@ const Home = () => {
                   <span className="font-semibold text-black lg:text-lg">
                     Location Research:
                   </span>{" "}
-                  Our Team finds new trending locations
-                  by researching destinations for work-travel compatibility.
+                  Our Team finds new trending locations by researching
+                  destinations for work-travel compatibility.
                 </p>
               </div>
             </div>
@@ -189,9 +191,9 @@ const Home = () => {
                   <span className="font-semibold text-black lg:text-lg">
                     Remote Work Compatibility:
                   </span>{" "}
-                  Our Team evaluates a large set of listings and filters based on 
-                  several criteria including price competitveness, wifi strength, etc.
-
+                  Our Team evaluates a large set of listings and filters based
+                  on several criteria including price competitveness, wifi
+                  strength, etc.
                 </p>
               </div>
             </div>
@@ -230,8 +232,9 @@ const Home = () => {
                   <span className="font-semibold text-black lg:text-lg">
                     Community Feedback:
                   </span>{" "}
-                  We activley seek out our users&apos; feedback of the spaces they have visisted in order 
-                  to ensure we only promote quality spaces. 
+                  We activley seek out our users&apos; feedback of the spaces
+                  they have visisted in order to ensure we only promote quality
+                  spaces.
                 </p>
               </div>
             </div>
