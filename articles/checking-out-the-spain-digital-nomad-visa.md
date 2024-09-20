@@ -8,7 +8,7 @@ description: "As someone enamored with traveling and working as one, I couldn't 
 
 # Embracing the Digital Nomad Visa: A Spanish Adventure
 
-The digital nomad lifestyle, with its promise of freedom and flexibility, has captivated individuals around the globe. As someone enamored with the idea of working remotely while exploring new cultures, I couldn't resist the allure of Spain's newly introduced digital nomad visa. Thus, armed with my laptop and a thirst for adventure, I embarked on a journey to discover the wonders of this Mediterranean gem while navigating the intricacies of remote work.
+The digital nomad lifestyle, with its promise of freedom and flexibility, has captivated individuals around the globe. As someone enamored with the idea of working remotely while exploring new cultures, I couldn't resist the allure of Spains newly introduced digital nomad visa. Thus, armed with my laptop and a thirst for adventure, I embarked on a journey to discover the wonders of this Mediterranean gem while navigating the intricacies of remote work.
 
 ## Setting the Stage: Arriving in Spain
 
