@@ -56,7 +56,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({
         id="controllable-states-demo"
         options={ALL_VAGUE_CITIES}
         getOptionLabel={(option) => option.label} // Define label for the dropdown
-        sx={{ width: 300, border: "hidden", borderRadius: "md" , borderColor: "red.800"}}
+        sx={{ width: "max-content", border: "hidden", borderRadius: "md" , borderColor: "red.800"}}
         renderInput={(params) => <TextField {...params} label="Anywhere" />}
       />
   );

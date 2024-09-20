@@ -17,7 +17,7 @@ export default async function s({ searchParams }: SearchProps) {
   return (
     <>
       <Container>
-        <div className="flex flex-row items-center justify-between overflow-x-auto pt-4">
+        <div className="flex flex-row items-center justify-between overflow-x-auto sm:pt-4 pt-0 -mt-2">
           {ALL_NAVBAR_CATEGORIES.map((item) => (
             <CategoryBox
               key={item.label}

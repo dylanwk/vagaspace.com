@@ -24,12 +24,12 @@ export default function Blog() {
           </div>
         </div>
 
-        <div className="z-20 mx-auto flex h-full max-w-7xl flex-col items-center justify-center text-center ">
-          <h1 className="z-0 text-left text-5xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-5xl">
+        <div className="z-20 mx-auto flex h-full max-w-7xl flex-col mt-12 items-center justify-center text-center ">
+          <h1 className="z-0 text-left text-4xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-5xl">
           Nomad Life Hacks
           and Housing Guides. <br></br>
           </h1>
-          <h1 className="z-0 mb-10 max-w-2xl mt-5 text-left text-2xl font-normal leading-none  text-white sm:text-center md:mb-10">
+          <h1 className="z-0 mb-10 max-w-2xl mt-5 text-left text-lg sm:text-2xl font-normal leading-none  text-white sm:text-center md:mb-10">
             {" "}
             Learn how to find the best housing and how to pick your remote work destinations around the world.
           </h1>

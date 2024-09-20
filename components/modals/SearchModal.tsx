@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useMemo, useState } from 'react';
-import dynamic from 'next/dynamic';
-import qs from 'query-string';
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+import qs from "query-string";
 
-import useSearchModal from '@/app/hooks/useSearchModal';
-import Modal from './Modal';
+import useSearchModal from "@/app/hooks/useSearchModal";
+import Modal from "./Modal";
 
-import Counter from '../ui/counter';
-import Heading from '../Heading';
-import CategorySkeleton from '../skeletons/CategorySkeleton';
-import { Skeleton } from '../ui/skeleton';
-import ComboBox, { destinationValue } from '../searchbars/ComboBox';
+import Counter from "../ui/counter";
+import Heading from "../Heading";
+import CategorySkeleton from "../skeletons/CategorySkeleton";
+import { Skeleton } from "../ui/skeleton";
+import ComboBox, { destinationValue } from "../searchbars/ComboBox";
 
-const CategoryMap = dynamic(() => import('../categories/CategoryMap'), {
+const CategoryMap = dynamic(() => import("../categories/CategoryMap"), {
   ssr: false,
-  loading: () => <CategorySkeleton />
+  loading: () => <CategorySkeleton />,
 });
 
 enum STEPS {
   LOCATION = 0,
   INFO = 1,
-  CATEGORY = 2
+  CATEGORY = 2,
 }
 
 interface State {
@@ -34,8 +34,6 @@ interface State {
 }
 
 const SearchModal = () => {
-  
-
   const searchModal = useSearchModal();
 
   const router = useRouter();
@@ -50,14 +48,14 @@ const SearchModal = () => {
     step: STEPS.LOCATION,
     guestCount: 1,
     roomCount: 1,
-    bathroomCount: 1
+    bathroomCount: 1,
   });
 
   const Map = useMemo(
     () =>
-      dynamic(() => import('../Map'), {
+      dynamic(() => import("../Map"), {
         ssr: false,
-        loading: () => <Skeleton className='h-[50vh]'/>
+        loading: () => <Skeleton className="h-[50vh]" />,
       }),
     [state.location?.latlng]
   );
@@ -95,13 +93,13 @@ const SearchModal = () => {
       guestCount: state.guestCount,
       roomCount: state.roomCount,
       bathroomCount: state.bathroomCount,
-      category: Array.from(selectedCategories).join(',')
+      category: Array.from(selectedCategories).join(","),
     };
 
     const url = qs.stringifyUrl(
       {
-        url: '/s/',
-        query: updateQuery
+        url: "/s/",
+        query: updateQuery,
       },
       { skipNull: true }
     );
@@ -112,11 +110,11 @@ const SearchModal = () => {
   }, [state, searchModal, router, params, onNext, selectedCategories]);
 
   const actionLabel = useMemo(() => {
-    return state.step === STEPS.CATEGORY ? 'Search' : 'Next';
+    return state.step === STEPS.CATEGORY ? "Search" : "Next";
   }, [state.step]);
 
   const secondaryActionLabel = useMemo(() => {
-    return state.step === STEPS.LOCATION ? undefined : 'Back';
+    return state.step === STEPS.LOCATION ? undefined : "Back";
   }, [state.step]);
 
   let bodyContent;
@@ -138,7 +136,7 @@ const SearchModal = () => {
       break;
     case STEPS.INFO:
       bodyContent = (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-14 mb-10">
           <Heading
             title="More information"
             subtitle="Find your perfect place!"
@@ -184,12 +182,12 @@ const SearchModal = () => {
             onChange={(value: any) =>
               setState((prev) => ({
                 ...prev,
-                location: value
+                location: value,
               }))
             }
           />
           <hr />
-          <div className=''>
+          <div className="">
             <Map center={state.location?.latlng} />
           </div>
         </div>

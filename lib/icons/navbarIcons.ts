@@ -19,11 +19,7 @@ export const ALL_NAVBAR_CATEGORIES: categoryIcon[] = [
     icon: BalconyIcon,
     description: 'This property includes a balcony.'
   },
-  {
-    label: 'Cafés Nearby',
-    icon: CoffeeIcon,
-    description: 'Located close to popular cafés.'
-  },
+  
   {
     label: 'Coastal',
     icon: TsunamiOutlined,
@@ -40,14 +36,19 @@ export const ALL_NAVBAR_CATEGORIES: categoryIcon[] = [
     description: 'Located in the city center.'
   },
   {
-    label: 'High-Speed Wifi',
-    icon: WifiIcon,
-    description: 'Equipped with high-speed Wifi.'
-  },
-  {
     label: 'Scenic',
     icon: SunsetIcon,
     description: 'Offers scenic views.'
+  },
+  {
+    label: 'Cafés Nearby',
+    icon: CoffeeIcon,
+    description: 'Located close to popular cafés.'
+  },
+  {
+    label: 'High-Speed Wifi',
+    icon: WifiIcon,
+    description: 'Equipped with high-speed Wifi.'
   },
   {
     label: 'Workspaces',

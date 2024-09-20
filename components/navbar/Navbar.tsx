@@ -12,7 +12,7 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = ({}) => {
   const pathname = usePathname();
   const isMainPage = pathname === "/";
-  const isContactPage = pathname === "/contact" || pathname === "/blog/write-for-us";
+  const isContactPage = pathname === "/contact" || pathname === "/blog/write-for-us" || pathname.includes("/blog/");
   const isBlogPage = pathname === "/blog";
   
 
@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         </div>
       </>
     );
-  } else if (isContactPage) {
+  } else if (isContactPage || isBlogPage) {
     HeaderIconComponent = (
       <>
         <div className="flex flex-row items-center gap-0">
@@ -91,7 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
     <>
       <div
-        className={`z-10 mt-4 w-full bg-transparent ${
+        className={`z-10 mt-2 sm:mt-4 w-full bg-transparent ${
           isMainPage || isBlogPage ? "absolute" : ""
         }`}
       >

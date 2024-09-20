@@ -27,10 +27,10 @@ const Home = () => {
         </div>
 
         <div className="z-20 mx-auto flex h-full max-w-7xl flex-col items-center justify-center text-center sm:-mt-6">
-          <h1 className="z-0 text-left text-6xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-6xl">
+          <h1 className="z-0 text-left text-5xl font-extrabold leading-none tracking-tight text-white sm:text-center sm:text-6xl">
             One Search. Endless Possibilities <br></br>
           </h1>
-          <h1 className="z-0 mb-10 mt-5 text-left text-2xl font-medium leading-none  text-white sm:text-center md:mb-10">
+          <h1 className="z-0 mb-10 mt-5 text-left text-xl sm:text-2xl font-medium leading-none  text-white sm:text-center md:mb-10">
             {" "}
             Streamline Your Search for Remote, Work-Friendly Stays.
           </h1>
@@ -114,7 +114,7 @@ const Home = () => {
 
       <div className="mx-auto max-w-6xl px-4 py-10 lg:pt-20 xl:px-0">
         <div className="mb-10 max-w-3xl lg:mb-14">
-          <h2 className="text-5xl font-bold tracking-tight text-neutral-900 md:text-4xl md:leading-tight lg:text-6xl">
+          <h2 className="text-4xl font-bold tracking-tight text-neutral-900 md:text-4xl md:leading-tight lg:text-6xl">
             Our approach
           </h2>
           <p className="mt-3 text-neutral-600 text-lg sm:text-xl font-light">
@@ -125,7 +125,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="flex">
-            <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
+            <div className="rotate-180 p-4 [writing-mode:_vertical-lr]">
               <time className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-black">
                 <span>Mi Refugio San Angel</span>
                 <span className="w-px flex-1 bg-black"></span>
@@ -133,7 +133,7 @@ const Home = () => {
               </time>
             </div>
             <Image
-              className="h-[490px] w-[380px] rounded-xl object-cover md:h-[600px] md:w-[460px]"
+              className="h-[490px] w-4/5 rounded-xl object-cover md:h-[600px] md:w-[460px]"
               src={"/images/laReformaSpace.png"}
               alt="LaReforma House"
               width={460}
