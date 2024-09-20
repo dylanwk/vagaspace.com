@@ -8,6 +8,7 @@ export interface IListingParams {
   category?: string;
 }
 
+
 export default async function getListings(params: IListingParams) {
   try {
     const { bedCount, guestCount, bathroomCount, locationValue, category } = params;
