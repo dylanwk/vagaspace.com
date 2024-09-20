@@ -2,18 +2,16 @@ import Image from "next/image";
 
 import ChartIcon from "@mui/icons-material/ShowChartOutlined";
 import GlobeIcon from "@mui/icons-material/PublicOutlined";
-import MapPinIcon from "@mui/icons-material/PlaceOutlined";
 import ThumbUp from "@mui/icons-material/ThumbUp";
-import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 
 import LandingSeachbar from "@/components/searchbars/LandingSearchbar";
 import LandingSearchbarSkeleton from "@/components/skeletons/LandingSearchbarSkeleton";
-
+import ClientOnly from "@/components/ClientOnly";
 
 const Home = () => {
   return (
-    <>
-      <section className="relative h-[100vh] overflow-hidden bg-black px-4 py-20 sm:py-36 xl:py-60">
+    <section className="z-10">
+      <section className="relative h-[100vh] bg-black px-4 py-20 sm:py-36 xl:py-60">
         <div className="absolute inset-0 z-0">
           <div className="opacity-80">
             <Image
@@ -36,28 +34,23 @@ const Home = () => {
             {" "}
             Streamline Your Search for Remote, Work-Friendly Stays.
           </h1>
+          <ClientOnly>
+            <div className="z-30 relative w-full sm:w-fit  sm:justify-center">
+              <div className="hidden sm:block">
+                <LandingSeachbar />
+              </div>
 
-          <div className="relative w-full sm:w-fit  sm:justify-center">
-            <div className="hidden sm:block">
-              <LandingSeachbar
-                MdOutlineKeyboardArrowRight={<ArrowForwardIosOutlinedIcon />}
-                PiMapPinBold={<MapPinIcon fontSize="large" />}
-              />
+              <div className="sm:hidden">
+                <LandingSearchbarSkeleton />
+              </div>
             </div>
-
-            <div className="sm:hidden">
-              <LandingSearchbarSkeleton
-                MdOutlineKeyboardArrowRight={<ArrowForwardIosOutlinedIcon />}
-                PiMapPinBold={<MapPinIcon />}
-              />
-            </div>
-          </div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* SECTION 2 -> Feature Section */}
 
-      <div className="mx-auto h-auto max-w-6xl px-4 xl:px-0 my-8">
+      <div className="z-0 mx-auto h-auto max-w-6xl px-4 xl:px-0 my-8">
         <div className="grid h-full sm:h-[80vh] gap-20 md:grid-cols-2 items-center mt-4">
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-black lg:text-6xl">
@@ -68,53 +61,52 @@ const Home = () => {
               globe.
             </p>
           </div>
-          
-            <div className="space-y-8 lg:space-y-16">
-              <div className="flex gap-x-5 sm:gap-x-8">
-                <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
-                  <ChartIcon fontSize="large" />
-                </span>
-                <div className="grow">
-                  <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
-                    Research-Backed Spaces
-                  </h3>
-                  <p className="mt-1 text-neutral-600 text-lg font-light">
-                    All spaces on Vagaspace are suited for working
-                    professionals.
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex gap-x-5 sm:gap-x-8">
-                <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
-                  <GlobeIcon fontSize="large" />
-                </span>
-                <div className="grow">
-                  <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
-                    Wide Range of Sources
-                  </h3>
-                  <p className="mt-1 text-neutral-600 font-light text-lg">
-                    Discover stays from platforms like Airbnb and Vrbo, to local
-                    small-town travel agencies.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-x-5 sm:gap-x-8">
-                <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
-                  <ThumbUp fontSize="large" />
-                </span>
-                <div className="grow">
-                  <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
-                    Trusted Spaces
-                  </h3>
-                  <p className="mt-1 text-neutral-600 font-light text-lg">
-                    Every listing on Vagaspace is verified for saftey and
-                    credibility.
-                  </p>
-                </div>
+          <div className="space-y-8 lg:space-y-16">
+            <div className="flex gap-x-5 sm:gap-x-8">
+              <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
+                <ChartIcon fontSize="large" />
+              </span>
+              <div className="grow">
+                <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
+                  Research-Backed Spaces
+                </h3>
+                <p className="mt-1 text-neutral-600 text-lg font-light">
+                  All spaces on Vagaspace are suited for working professionals.
+                </p>
               </div>
             </div>
+
+            <div className="flex gap-x-5 sm:gap-x-8">
+              <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
+                <GlobeIcon fontSize="large" />
+              </span>
+              <div className="grow">
+                <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
+                  Wide Range of Sources
+                </h3>
+                <p className="mt-1 text-neutral-600 font-light text-lg">
+                  Discover stays from platforms like Airbnb and Vrbo, to local
+                  small-town travel agencies.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-x-5 sm:gap-x-8">
+              <span className="mx-auto inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full text-gray-800">
+                <ThumbUp fontSize="large" />
+              </span>
+              <div className="grow">
+                <h3 className="font-semibold tracking-tight text-gray-800 sm:text-2xl">
+                  Trusted Spaces
+                </h3>
+                <p className="mt-1 text-neutral-600 font-light text-lg">
+                  Every listing on Vagaspace is verified for saftey and
+                  credibility.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -241,7 +233,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

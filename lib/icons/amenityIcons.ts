@@ -33,7 +33,7 @@ export interface Category {
   icon: SvgIconComponent;
 }
 
-export const categories: Category[] = [
+export const ALL_AMENITY_ICONS: Category[] = [
   { label: 'Garden view', icon: LocalFloristOutlinedIcon },
   { label: 'Wifi', icon: WifiIcon },
   { label: 'Coffee', icon: CoffeeMakerIcon },

@@ -25,7 +25,6 @@ model User {
   updatedAt      DateTime  @updatedAt
   favoriteIds    String[]  @db.ObjectId
 
-  listings     Listing[]
   accounts     Account[]
 }
 
@@ -49,21 +48,22 @@ model Account {
 }
 
 model Listing {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  title         String
-  price         Int
-  link          String
-  imageSrc      String
-  amenities     String
-  bedCount      Int
-  bathroomCount Int
-  guestCount    Int
-  locationAttractions String
-  location   String
-  createdAt     DateTime @default(now())
-  descriptors String
-  description String
-  userId        String   @db.ObjectId
-
-  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  title             String
+  description       String
+  latLng            String // "[lat,lng]"
+  locationExact     String
+  locationVague     String
+  categoryOptions   String // "[option1, option2, option3]"
+  locationAttractions String // "[attraction1, attraction2, attraction3]"
+  amenities         String // "[amenity1, amenity2, amenity3]"
+  price             Int
+  link              String
+  guestCount        Int
+  bedCount          Int
+  bathroomCount     Int
+  imageSrc          String
+  propertyType      String   // "Entire home or Apartment"
+  createdAt         DateTime @default(now())
+  userId            String   @db.ObjectId
 }

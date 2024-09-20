@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 
+import MapPinIcon from "@mui/icons-material/PlaceOutlined";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+
+
 type Country = {
   label: string;
   quantity: number;
@@ -23,13 +27,11 @@ export const destinationOptions: Country[] = [
 ];
 
 interface LandingSearchbarProps {
-  PiMapPinBold: JSX.Element;
-  MdOutlineKeyboardArrowRight: JSX.Element;
+  
 }
 
 export default function LandingSearchbar({
-  PiMapPinBold,
-  MdOutlineKeyboardArrowRight,
+  
 }: LandingSearchbarProps) {
   const [locationValue, setLocationValue] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -61,7 +63,6 @@ export default function LandingSearchbar({
   const handleSuggestionClick = (value: string) => {
     setLocationValue(value);
     setDropdownOpen(false);
-    router.push(`/s?locationValue=${value}`);
   };
 
   const handleInputFocus = () => {
@@ -82,7 +83,11 @@ export default function LandingSearchbar({
     const matchedLocation = destinationOptions.find((loc) =>
       loc.label.toLowerCase().includes(locationValue.toLowerCase())
     );
-    router.push(`/s?locationValue=${matchedLocation?.label || "Anywhere"}`);
+    if (matchedLocation) {
+      router.push(`/s?locationValue=${matchedLocation.label}`);
+    } else {
+      router.push("/s");
+    }
   };
 
   useEffect(() => {
@@ -93,11 +98,7 @@ export default function LandingSearchbar({
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
+    
     <div
       ref={containerRef}
       className="relative z-20 flex cursor-pointer flex-row justify-center rounded-full border-[2px] bg-transparent py-3.5 align-middle backdrop-blur-md backdrop-filter sm:w-[550px]"
@@ -108,7 +109,7 @@ export default function LandingSearchbar({
         className="flex w-full flex-row items-center justify-between"
       >
         <div className="ml-6 hidden sm:block text-white" aria-hidden="true">
-          {PiMapPinBold}
+          <MapPinIcon fontSize="large" />
         </div>
 
         <div className="flex flex-1 items-center justify-center text-left font-bold">
@@ -139,14 +140,14 @@ export default function LandingSearchbar({
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="absolute left-0 z-50 mt-5 w-full max-w-[300px] rounded-md bg-white"
+                className="absolute left-0 z-50 mt-5 w-full max-w-[350px] rounded-lg shadow-md bg-white"
                 role="region"
                 aria-labelledby="LocationInput"
               >
                 <ul
                   id="autocomplete-list"
                   role="listbox"
-                  className="max-h-[260px] overflow-scroll rounded-sm bg-white font-semibold tracking-normal text-black"
+                  className="max-h-[250px] overflow-scroll rounded-sm bg-white font-semibold tracking-normal text-black"
                 >
                   {filteredSuggestions.map((suggestion, index) =>
                     suggestion.quantity === -1 ? (
@@ -162,14 +163,15 @@ export default function LandingSearchbar({
                       </li>
                     ) : (
                       <li
-                        className="flex h-[37px] cursor-pointer items-center justify-between rounded-sm pl-4 text-sm hover:bg-gray-100"
+                        className="flex h-[43px] cursor-pointer items-center justify-between rounded-sm pl-4 text-sm hover:bg-gray-100"
                         role="option"
                         aria-selected="false"
                         key={index}
                         onClick={() => handleSuggestionClick(suggestion.label)}
                       >
-                        {suggestion.label}
-                        <div className="pr-4">{suggestion.quantity}</div>
+                        <div>
+                          {suggestion.label.split(",")[0]}, <span className="font-light text-gray-600">{suggestion.label.split(",")[1]}</span>
+                        </div>
                       </li>
                     )
                   )}
@@ -195,10 +197,9 @@ export default function LandingSearchbar({
           <div className="hidden pl-4 pr-3 text-lg font-semibold text-white sm:block">
             Search
           </div>
-          <span aria-hidden="true" className="text-white">{MdOutlineKeyboardArrowRight}</span>
+          <span aria-hidden="true" className="text-white"><ArrowForwardIosOutlinedIcon /></span>
         </Button>
       </form>
     </div>
-    </motion.div>
   );
 }

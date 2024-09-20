@@ -5,10 +5,9 @@ import Image from 'next/image';
 
 interface ListingCard {
   data: Listing;
-  currentUser?: User | null;
 }
 
-const ListingCard: React.FC<ListingCard> = ({ data, currentUser }) => {
+const ListingCard: React.FC<ListingCard> = ({ data }) => {
   return (
     <div className="group col-span-1 cursor-pointer">
       <a
@@ -28,7 +27,7 @@ const ListingCard: React.FC<ListingCard> = ({ data, currentUser }) => {
           />
         </div>
         <div className="text-lg font-semibold">{data.title}</div>
-        <div className="font-light text-neutral-500">{data.location}</div>
+        <div className="font-light text-neutral-500">{data.locationExact}</div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">$ {data.price}</div>
           <div className="font-light">night</div>

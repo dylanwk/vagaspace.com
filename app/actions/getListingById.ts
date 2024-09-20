@@ -12,9 +12,7 @@ export default async function getListingById(params: IParams) {
       where: {
         id: listingId
       },
-      include: {
-        user: false
-      }
+      
     });
 
     if (!listing) {

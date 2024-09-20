@@ -10,9 +10,9 @@ import Modal from './Modal';
 
 import Counter from '../ui/counter';
 import Heading from '../Heading';
-import CountrySelect, { destinationValue } from '../ui/CountrySelect';
 import CategorySkeleton from '../skeletons/CategorySkeleton';
 import { Skeleton } from '../ui/skeleton';
+import ComboBox, { destinationValue } from '../searchbars/ComboBox';
 
 const CategoryMap = dynamic(() => import('../categories/CategoryMap'), {
   ssr: false,
@@ -179,7 +179,7 @@ const SearchModal = () => {
             subtitle="Find the perfect location!"
             sm
           />
-          <CountrySelect
+          <ComboBox
             value={state.location}
             onChange={(value: any) =>
               setState((prev) => ({
@@ -189,7 +189,9 @@ const SearchModal = () => {
             }
           />
           <hr />
-          <Map center={state.location?.latlng} />
+          <div className=''>
+            <Map center={state.location?.latlng} />
+          </div>
         </div>
       );
   }

@@ -4,8 +4,7 @@ import dynamic from "next/dynamic";
 import "../styles/globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster"
-
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,15 +24,21 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/vagaspace_logo.svg" sizes="any" />
+        <title>Vagaspace | Vacation rentals for digital nomads, & more</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={inter.className}>
         <SearchModal />
 
         <Navbar />
         <main className="min-h-[100vh] antialiased bg-background">
           {children}
-          </main>
-          <Toaster />
-          <Footer />
+        </main>
+        <Toaster />
+        <Footer />
       </body>
     </html>
   );

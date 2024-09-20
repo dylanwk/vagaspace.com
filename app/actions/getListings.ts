@@ -4,13 +4,13 @@ export interface IListingParams {
   guestCount?: number;
   bedCount?: number;
   bathroomCount?: number;
-  location?: string;
+  locationValue?: string;
   category?: string;
 }
 
 export default async function getListings(params: IListingParams) {
   try {
-    const { bedCount, guestCount, bathroomCount, location } = params;
+    const { bedCount, guestCount, bathroomCount, locationValue, category } = params;
 
     let query: any = {};
 
@@ -32,8 +32,17 @@ export default async function getListings(params: IListingParams) {
       };
     }
 
-    if (location) {
-      query.location = location;
+    if (locationValue) {
+      query.locationVague = locationValue;
+    }
+
+    if (category) {
+      const categoriesArray = category.split(','); 
+      query.AND = categoriesArray.map((cat) => ({
+        categoryOptions: {
+          contains: `"${cat.trim()}"`, 
+        },
+      }));
     }
 
     const listings = await db.listing.findMany({

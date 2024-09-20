@@ -14,16 +14,6 @@ const Footer = () => {
           <li>
             <a
               className="text-gray-700 transition hover:text-gray-700/75"
-              href="/about"
-            >
-              {" "}
-              About{" "}
-            </a>
-          </li>
-
-          <li>
-            <a
-              className="text-gray-700 transition hover:text-gray-700/75"
               href="/s?locationValue=Anywhere"
             >
               {" "}
@@ -52,6 +42,9 @@ const Footer = () => {
         </ul>
 
         <ul className="mt-12 flex justify-center gap-6 md:gap-8"></ul>
+      </div>
+      <div className=" text-xs font-extralight tracking-tight justify-right text-left -mt-12 p-4">
+        © 2024 Vagaspace
       </div>
     </footer>
   );

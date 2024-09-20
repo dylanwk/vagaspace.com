@@ -1,14 +1,14 @@
 "use client";
 import useSearchModal from "@/app/hooks/useSearchModal";
+import MapPinIcon from "@mui/icons-material/PlaceOutlined";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 
 interface LandingSearchbarSkeletonProps {
-  PiMapPinBold: JSX.Element;
-  MdOutlineKeyboardArrowRight: JSX.Element;
+  
 }
 
 const LandingSearchbarSkeleton: React.FC<LandingSearchbarSkeletonProps> = ({
-  PiMapPinBold,
-  MdOutlineKeyboardArrowRight,
+  
 }) => {
   const searchModal = useSearchModal();
 
@@ -16,7 +16,7 @@ const LandingSearchbarSkeleton: React.FC<LandingSearchbarSkeletonProps> = ({
     <div onClick={searchModal.onOpen} className="relative z-20 flex cursor-pointer flex-row justify-center rounded-full border-[2px] bg-transparent py-3.5 align-middle backdrop-blur-md backdrop-filter sm:w-[550px]">
       <div className="flex w-full flex-row items-center justify-between">
         <div className="ml-6 hidden sm:block" aria-hidden="true">
-          {PiMapPinBold}
+          <MapPinIcon fontSize="large"/>
         </div>
 
         <div className="flex flex-1 items-center justify-center text-left font-bold">
@@ -34,7 +34,7 @@ const LandingSearchbarSkeleton: React.FC<LandingSearchbarSkeletonProps> = ({
           <div className="hidden pl-4 pr-3 text-lg font-semibold text-white sm:block">
             Search
           </div>
-          <span aria-hidden="true" className="text-white">{MdOutlineKeyboardArrowRight}</span>
+          <span aria-hidden="true" className="text-white"><ArrowForwardIosOutlinedIcon /></span>
         </div>
       </div>
     </div>

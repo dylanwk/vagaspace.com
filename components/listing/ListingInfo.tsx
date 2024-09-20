@@ -1,22 +1,24 @@
 "use client";
 
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+import { categoryIcon } from "@/lib/icons/navbarIcons";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 
 interface ListingInfoProps {
   description: string;
   locationValue: string;
   amenities: JSX.Element;
+  categories: categoryIcon[];
 }
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
   description,
   locationValue,
   amenities,
+  categories,
 }) => {
+  
   const parsed_description = description.replace("Description: ", "");
-
-  const parsed_locations = locationValue.split("\n");
-  parsed_locations.pop();
+  const locations: string[] = JSON.parse(locationValue);
 
   return (
     <div className="col-span-4 flex flex-col gap-8">
@@ -25,18 +27,29 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
       </div>
 
       <hr />
-      <p className="-mb-2 text-xl font-semibold">
-        This spaces is as
-      </p>
+      {categories &&
+        categories.map((item, index) => (
+          <div className="flex flex-col gap-6" key={index}>
+            <div className="flex flex-row items-center gap-4">
+              <item.icon />
+              <div className="flex flex-col">
+                <p className="text-lg font-semibold">{item?.label}</p>
+                <p className="text-neutral-500 font-light">
+                  {item?.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
       <hr />
       <div>
         <p className="text-xl font-semibold">Explore what&apos;s nearby</p>
         <div className="flex justify-start space-x-12 pt-6">
           <div className="flex flex-col gap-3 text-lg font-light text-neutral-500">
-            {parsed_locations &&
-              parsed_locations.map((item, index) => (
+            {locations &&
+              locations.map((item, index) => (
                 <div className="flex flex-row gap-2" key={index}>
-                  <PlaceOutlinedIcon htmlColor='black' className='mt-1' />
+                  <PlaceOutlinedIcon htmlColor="black" className="mt-1" />
                   {item}
                 </div>
               ))}
