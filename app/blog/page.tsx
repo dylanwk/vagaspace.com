@@ -9,9 +9,9 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative h-[80vh] overflow-hidden bg-black px-4 py-20 sm:py-36 xl:py-60">
+      <section className="relative min-h-screen overflow-hidden bg-black px-4 py-20 sm:py-36 xl:py-60">
         <div className="absolute inset-0 z-0">
-          <div className="opacity-60">
+          <div className="opacity-80">
             <Image
               src="/images/andreas-brucker-lisbon-picture.jpg"
               alt="Lisbon Portugal"
