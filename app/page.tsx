@@ -40,7 +40,7 @@ const Home = () => {
                 <LandingSeachbar />
               </div>
 
-              <div className="sm:hidden">
+              <div className="sm:hidden -mt-4 sm:mt-0">
                 <LandingSearchbarSkeleton />
               </div>
             </div>

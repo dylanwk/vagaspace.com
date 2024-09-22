@@ -13,14 +13,12 @@ const LandingSearchbarSkeleton: React.FC<LandingSearchbarSkeletonProps> = ({
   const searchModal = useSearchModal();
 
   return (
-    <div onClick={searchModal.onOpen} className="relative z-20 flex cursor-pointer flex-row justify-center rounded-full border-[2px] bg-transparent py-3.5 align-middle backdrop-blur-md backdrop-filter sm:w-[550px]">
+    <div onClick={searchModal.onOpen} className="relative z-20 flex cursor-pointer flex-row justify-center rounded-full border-[2px] bg-transparent py-2 align-middle backdrop-blur-md backdrop-filter w-11/12 sm:w-[550px]">
       <div className="flex w-full flex-row items-center justify-between">
-        <div className="ml-6 hidden sm:block" aria-hidden="true">
-          <MapPinIcon fontSize="large"/>
-        </div>
+        
 
         <div className="flex flex-1 items-center justify-center text-left font-bold">
-          <div className="relative ml-4 w-full text-center text-white">
+          <div className="relative ml-4 w-full text-left text-white">
             <div className="border-1 w-full rounded-md bg-transparent p-2 text-xl font-semibold outline-none transition">
               Search Destinations
             </div>

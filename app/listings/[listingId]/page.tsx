@@ -91,7 +91,7 @@ export default async function listings({ params }: { params: IParams }) {
 
   return (
     <Container>
-      <div className="mx-auto mt-6 max-w-screen-lg px-4 sm:px-6 lg:px-8 mb-20">
+      <div className="mx-auto mt-6 max-w-screen-lg px-1 sm:px-6 lg:px-8 mb-20">
         <div className="flex flex-col gap-4 sm:gap-6">
           <div className="relative aspect-square sm:aspect-[4/3] md:aspect-[16/9] w-full overflow-hidden rounded-xl">
             <Image

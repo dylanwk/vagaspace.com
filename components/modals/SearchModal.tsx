@@ -187,9 +187,7 @@ const SearchModal = () => {
             }
           />
           <hr />
-          <div className="">
-            <Map center={state.location?.latlng} />
-          </div>
+          <Map center={state.location?.latlng} sm />
         </div>
       );
   }
