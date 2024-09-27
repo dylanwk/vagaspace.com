@@ -25,11 +25,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-QWGSFHCZJK"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-QWGSFHCZJK');
+            `,
+          }}
+        />
         <link rel="icon" href="/images/vagaspace_logo.svg" sizes="any" />
         <title>Vagaspace | Vacation rentals for digital nomads, & more</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
+
       <body className={inter.className}>
         <SearchModal />
 
