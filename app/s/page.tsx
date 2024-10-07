@@ -15,7 +15,7 @@ export default async function s({ searchParams }: SearchProps) {
   const category = searchParams.category ? searchParams.category.split(",") : [];
 
   return (
-    <>
+    
       <Container>
         <div className="flex flex-row items-center justify-between overflow-x-auto sm:pt-4 pt-0 -mt-2">
           {ALL_NAVBAR_CATEGORIES.map((item) => (
@@ -30,7 +30,7 @@ export default async function s({ searchParams }: SearchProps) {
         {listings && listings.length === 0 ? (
           <EmptyState showReset />
         ) : (
-          <div className="grid min-h-screen grid-cols-1 gap-8 mb-14 pt-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
+          <div className="grid min-h-screen grid-cols-1 gap-8 mb-14 pt-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3">
             {listings &&
               listings.map((listing: any) => {
                 return <ListingCard key={listing.id} data={listing} />;
@@ -38,6 +38,6 @@ export default async function s({ searchParams }: SearchProps) {
           </div>
         )}
       </Container>
-    </>
+    
   );
 }

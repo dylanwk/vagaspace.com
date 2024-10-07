@@ -3,6 +3,7 @@ import { getCategorizedArticles } from "@/lib/articles";
 import Link from "next/link";
 import ArticleItemList from "./ArticleItemList";
 import Image from "next/image";
+import React from "react";
 
 export default function Blog() {
   const articles = getCategorizedArticles();

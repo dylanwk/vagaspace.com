@@ -13,6 +13,7 @@ import Heading from "../Heading";
 import CategorySkeleton from "../skeletons/CategorySkeleton";
 import { Skeleton } from "../ui/skeleton";
 import ComboBox, { destinationValue } from "../searchbars/ComboBox";
+import PropertyMap from "../categories/PropertyMap";
 
 const CategoryMap = dynamic(() => import("../categories/CategoryMap"), {
   ssr: false,
@@ -31,6 +32,7 @@ interface State {
   guestCount: number;
   roomCount: number;
   bathroomCount: number;
+  propertyType: string;
 }
 
 const SearchModal = () => {
@@ -43,12 +45,17 @@ const SearchModal = () => {
     new Set()
   );
 
+  const [selectedProperties, setSelectedProperties] = useState<Set<string>>(
+    new Set<string>()
+  );
+
   const [state, setState] = useState<State>({
     location: undefined,
     step: STEPS.LOCATION,
     guestCount: 1,
     roomCount: 1,
     bathroomCount: 1,
+    propertyType: "",
   });
 
   const Map = useMemo(
@@ -72,6 +79,18 @@ const SearchModal = () => {
     });
   }, []);
 
+  const handleProperty = useCallback((property: string) => {
+    const updatedProperties = new Set(selectedProperties); // Create a new copy of the Set
+    if (updatedProperties.has(property)) {
+      updatedProperties.delete(property);
+    } else {
+      updatedProperties.add(property);
+    }
+    setSelectedProperties(updatedProperties); // Assuming you're using setState to update the selectedProperties
+  }, [selectedProperties]); // Add selectedProperties as a dependency
+  
+  
+
   const onBack = useCallback(() => {
     setState((prev) => ({ ...prev, step: prev.step - 1 }));
   }, []);
@@ -94,6 +113,7 @@ const SearchModal = () => {
       roomCount: state.roomCount,
       bathroomCount: state.bathroomCount,
       category: Array.from(selectedCategories).join(","),
+      propertyType: Array.from(selectedProperties).join(","),
     };
 
     const url = qs.stringifyUrl(
@@ -121,7 +141,7 @@ const SearchModal = () => {
   switch (state.step) {
     case STEPS.CATEGORY:
       bodyContent = (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-7">
           <Heading
             title="Customize your search"
             subtitle="Don't worry, you can change this later!"
@@ -136,7 +156,7 @@ const SearchModal = () => {
       break;
     case STEPS.INFO:
       bodyContent = (
-        <div className="flex flex-col gap-14 mb-10">
+        <div className="flex flex-col gap-10 ">
           <Heading
             title="More information"
             subtitle="Find your perfect place!"
@@ -166,12 +186,16 @@ const SearchModal = () => {
               setState((prev) => ({ ...prev, bathroomCount: value }))
             }
           />
+          <PropertyMap
+            toggleProperty={handleProperty}
+            selectedProperties={selectedProperties}
+          />
         </div>
       );
       break;
     default:
       bodyContent = (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5">
           <Heading
             title="Where do you want to go?"
             subtitle="Find the perfect location!"

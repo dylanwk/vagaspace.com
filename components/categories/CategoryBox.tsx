@@ -41,12 +41,15 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       currentCategories.push(label);
     }
 
+    // Filter out any empty strings
+    const validCategories = currentCategories.filter(Boolean);
+
     const updatedQuery: any = {
       ...currentQuery,
-      category: currentCategories.join(',')
+      category: validCategories.join(',')
     };
 
-    if (currentCategories.length === 0) {
+    if (validCategories.length === 0) {
       delete updatedQuery.category;
     }
 

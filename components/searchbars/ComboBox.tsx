@@ -2,7 +2,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-
+import Popper from "@mui/material/Popper";
 
 export type destinationValue = {
   label: string;
@@ -12,7 +12,6 @@ export type destinationValue = {
 
 export const ALL_VAGUE_CITIES: destinationValue[] = [
   { label: "Lisbon, Portugal", quantity: 6, latlng: [38.7223, -9.1393] },
-  { label: "Del Carmen, Mexico", quantity: 9, latlng: [20.6296, -87.0739] },
   { label: "Mexico City, Mexico", quantity: 2, latlng: [19.4326, -99.1332] },
   {
     label: "Buenos Aires, Argentina",
@@ -35,29 +34,74 @@ interface ComboBoxProps {
   onChange: (value: destinationValue | null) => void; // Allow null to reset
 }
 
-const ComboBox: React.FC<ComboBoxProps> = ({
-  value,
-  onChange,
-}) => {
+const ComboBox: React.FC<ComboBoxProps> = ({ value, onChange }) => {
   const [inputValue, setInputValue] = React.useState<string>("");
 
   return (
-      <Autocomplete
-        
-        className="w-full border-hidden rounded-md"
-        value={value}
-        onChange={(event, newValue) => {
-          onChange(newValue); // Assign new destinationValue
-        }}
-        inputValue={inputValue}
-        onInputChange={(event, newInputValue) => {
-          setInputValue(newInputValue); // Track input value changes
-        }}
-        id="controllable-states-demo"
-        options={ALL_VAGUE_CITIES}
-        getOptionLabel={(option) => option.label} // Define label for the dropdown
-        renderInput={(params) => <TextField {...params} label="Anywhere" className="w-full" />}
-      />
+    <Autocomplete
+      sx={{
+        width: "100%", 
+        "& .MuiOutlinedInput-root": {
+          borderRadius: "50px",
+        },
+        "& .MuiAutocomplete-popupIndicator": {
+          color: "black",
+        },
+      }}
+      autoComplete
+      value={value}
+      onChange={(event, newValue) => {
+        onChange(newValue);
+      }}
+      inputValue={inputValue}
+      onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue);
+      }}
+      id="controllable-states-demo"
+      options={ALL_VAGUE_CITIES}
+      getOptionLabel={(option) => option.label}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Anywhere"
+          sx={{
+            "& fieldset": { borderRadius: "50px", borderColor: "gray" },
+            input: { color: "black" },
+            "& label": { color: "black", paddingLeft: "4px" },
+          }}
+        />
+      )}
+      PopperComponent={({ style, ...props }) => (
+        <Popper
+          {...props}
+          style={{
+            ...style,
+            width: "auto", // This allows the Popper to size based on its content
+          }}
+          placement="bottom-start"
+          modifiers={[
+            {
+              name: "sameWidth",
+              enabled: true,
+              fn: ({ state }) => {
+                state.styles.popper.width = `${state.rects.reference.width}px`;
+              },
+              phase: "beforeWrite",
+              requires: ["computeStyles"],
+            },
+          ]}
+        />
+      )}
+      ListboxProps={{
+        sx: {
+          "& .MuiAutocomplete-option": {
+            padding: "10px 12px",
+            minHeight: "55px",
+            boxSizing: "border-box",
+          },
+        },
+      }}
+    />
   );
 };
 

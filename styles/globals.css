@@ -1,8 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*
+@font-face {
+  font-family: 'test_font';
+  src: url('/fonts/conforta.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
 
-
+body {
+  font-family: 'test_font', sans-serif; 
+}
+*/
 
 @layer base {
   :root {

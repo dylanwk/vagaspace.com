@@ -14,7 +14,7 @@ const CategoryMap: React.FC<CategoryMapProps> = ({
   selectedCategories
 }) => {
   return (
-    <div className="scrollbar-thin scrollbar-thumb-[#FF5A5F] grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
+    <div className="scrollbar-thin scrollbar-thumb-[#FF5A5F] grid max-h-[50vh] grid-cols-2 gap-3 overflow-y-auto md:grid-cols-2">
       {ALL_NAVBAR_CATEGORIES.map((item) => (
         <div key={item.label} className="col-span-1">
           <CategoryInput

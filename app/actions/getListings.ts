@@ -6,12 +6,13 @@ export interface IListingParams {
   bathroomCount?: number;
   locationValue?: string;
   category?: string;
+  propertyType?: string;
 }
 
 
 export default async function getListings(params: IListingParams) {
   try {
-    const { bedCount, guestCount, bathroomCount, locationValue, category } = params;
+    const { bedCount, guestCount, bathroomCount, locationValue, category, propertyType } = params;
 
     let query: any = {};
 
@@ -38,13 +39,29 @@ export default async function getListings(params: IListingParams) {
     }
 
     if (category) {
-      const categoriesArray = category.split(','); 
+      const categoriesArray = category.split(',');
       query.AND = categoriesArray.map((cat) => ({
         categoryOptions: {
-          contains: `"${cat.trim()}"`, 
+          contains: `"${cat.trim()}"`,
         },
       }));
     }
+
+
+    if (propertyType) {
+      const decodedPropertyType = decodeURIComponent(propertyType);
+      const propertyTypes = decodedPropertyType.split(',');
+
+      // Filter out any empty strings
+      const validPropertyTypes = propertyTypes.filter(type => type.trim() !== '');
+
+      if (validPropertyTypes.length > 0) {
+        query.propertyType = { in: validPropertyTypes };
+      } else {
+        delete query.propertyType;
+      }
+    }
+
 
     const listings = await db.listing.findMany({
       where: query,

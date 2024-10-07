@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
   }
 
   return (
-    <div className="sm:mx-0 fixed inset-0 z-50 flex items-center sm:items-end justify-center overflow-y-auto overflow-x-hidden bg-neutral-800/70">
+    <div className="sm:mx-0 fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-neutral-800/70">
       <div className="relative mx-auto h-auto  w-full max-w-xl">
         <div
           className={`transform duration-300 ${showModal ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
@@ -86,7 +86,7 @@ const Modal: React.FC<ModalProps> = ({
               {body}
             </div>
             {/* FOOTER */}
-            <div className="flex flex-col gap-1 p-3">
+            <div className="flex flex-col  p-3">
               <div className="flex w-full flex-row items-center gap-4">
                 {secondaryAction && secondaryActionLable && (
                   <Button

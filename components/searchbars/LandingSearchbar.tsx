@@ -16,7 +16,6 @@ type Country = {
 
 export const destinationOptions: Country[] = [
   { label: "Lisbon, Portugal", quantity: 6 },
-  { label: "Del Carmen, Mexico", quantity: 9 },
   { label: "Mexico City, Mexico", quantity: 2 },
   { label: "Buenos Aires, Argentina", quantity: 1 },
   { label: "Cape Town, South Africa", quantity: 3 },
