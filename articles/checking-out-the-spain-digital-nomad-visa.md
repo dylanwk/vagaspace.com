@@ -2,11 +2,13 @@
 title: 'Embracing the Digital Nomad Visa: A Spanish Adventure'
 category: 'LIFESTYLE'
 date: '10-02-2024'
-image: '/images/oceania-pic.jpeg'
+image: '/images/patrick-baum.jpg'
 description: "As someone enamored with traveling and working as one, I couldn't resist Spain's newly introduced digital nomad visa."
+author: ""
+authorImage: ""
+readTime: "6 min read"
 ---
 
-# Embracing the Digital Nomad Visa: A Spanish Adventure
 
 The digital nomad lifestyle, with its promise of freedom and flexibility, has captivated individuals around the globe. As someone enamored with the idea of working remotely while exploring new cultures, I couldn't resist the allure of Spains newly introduced digital nomad visa. Thus, armed with my laptop and a thirst for adventure, I embarked on a journey to discover the wonders of this Mediterranean gem while navigating the intricacies of remote work.
 

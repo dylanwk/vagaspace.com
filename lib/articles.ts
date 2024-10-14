@@ -27,6 +27,9 @@ const getSortedArticles = (): ArticleItem[] => {
       category: matterResult.data.category,
       image: matterResult.data.image,
       description: matterResult.data.description,
+      author: matterResult.data.author,
+      authorImage: matterResult.data.authorImage,
+      readTime: matterResult.data.readTime
     };
   });
 
@@ -36,9 +39,9 @@ const getSortedArticles = (): ArticleItem[] => {
     const dateTwo = moment(b.date, format);
 
     if (dateOne.isBefore(dateTwo)) {
-      return -1;
-    } else if (dateTwo.isAfter(dateOne)) {
       return 1;
+    } else if (dateTwo.isAfter(dateOne)) {
+      return -1;
     } else {
       return 0;
     }
@@ -77,6 +80,10 @@ export const getArticleData = async (id: string) => {
     title: matterResult.data.title,
     category: matterResult.data.category,
     date: moment(matterResult.data.date, 'MM-DD-YYYY').format('MMMM Do YYYY'),
-    image: matterResult.data.image
+    image: matterResult.data.image,
+    description: matterResult.data.description,
+    author: matterResult.data.author,
+    authorImage: matterResult.data.authorImage,
+    readTime: matterResult.data.readTime
   };
 };

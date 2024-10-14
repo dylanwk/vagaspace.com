@@ -48,7 +48,7 @@ body {
 }
 
 .article > h1 {
-  @apply py-6 text-left text-3xl font-extrabold tracking-tight md:text-6xl;
+  @apply py-6 text-left text-3xl font-extrabold tracking-tight md:text-5xl;
 }
 
 .article > h2 {
@@ -72,11 +72,15 @@ body {
 }
 
 .article > p > img {
-  @apply mx-auto mb-6 w-full rounded-lg;
+  @apply mx-auto mb-6 w-full rounded-lg max-h-[85vh] object-cover mt-4;
 }
 
 .article > h3 {
-  @apply -mt-6 mb-4 text-center text-sm font-light;
+  @apply pt-5 text-xl font-bold tracking-tight;
+}
+
+.article > h4 {
+  @apply -mt-6 mb-4 text-center text-xs font-light;
 }
 
 
