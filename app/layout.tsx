@@ -74,6 +74,7 @@ export default function RootLayout({
           }}
         />
 
+        <meta name="agd-partner-manual-verification" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
