@@ -39,11 +39,7 @@ export const metadata: Metadata = {
     description: "Vagaspace | Vacation rentals for digital nomads, & mores",
     siteName: "Vagaspace",
   },
-  icons: {
-    icon: "/images/vagaspace_logo_circle.png",
-    shortcut: "/vagaspace_logo_circle.png",
-    apple: "/vagaspace_logo_circle.png",
-  },
+  
 };
 
 export default function RootLayout({
@@ -58,6 +54,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="icon"
+          href="/images/vagaspace_logo.svg"
+          type="image/svg+xml"
+          sizes="48x48"
+        />
+
         {/* Google Analytics */}
         <script
           async
